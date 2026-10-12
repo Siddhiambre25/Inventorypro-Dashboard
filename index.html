@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InventoryPro | Analytics Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">◆ Inventory<span>Pro</span></div>
+      <p class="menu-label">WORKSPACE</p>
+      <nav>
+        <a class="active" href="#dashboard">◈ Dashboard</a>
+        <a href="#inventory">▤ Inventory</a>
+        <a href="#analytics">◉ Analytics</a>
+      </nav>
+      <div class="sidebar-footer">
+        JavaScript Capstone Project
+      </div>
+    </aside>
+
+    <main class="main" id="dashboard">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">INVENTORY MANAGEMENT</p>
+          <h1>Dashboard Overview</h1>
+          <p class="subtitle">Manage products and track inventory insights.</p>
+        </div>
+        <div class="avatar">IP</div>
+      </header>
+
+      <section class="welcome">
+        <div>
+          <span class="welcome-tag">SMART INVENTORY</span>
+          <h2>Your inventory, simplified.</h2>
+          <p>Track products, monitor value and explore analytics in one place.</p>
+        </div>
+        <button id="addProductBtn" class="primary-btn">+ Add Product</button>
+      </section>
+
+      <section class="stats" id="analytics">
+        <div class="stat-card">
+          <div class="stat-icon purple">▣</div>
+          <p>Total Products</p>
+          <h2 id="totalProducts">0</h2>
+          <span>Items in inventory</span>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon blue">$</div>
+          <p>Inventory Value</p>
+          <h2 id="totalValue">$0</h2>
+          <span>Total product value</span>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon green">↘</div>
+          <p>Affordable Items</p>
+          <h2 id="affordableCount">0</h2>
+          <span>Products under $200</span>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon orange">★</div>
+          <p>Premium Products</p>
+          <h2 id="premiumCount">0</h2>
+          <span>High-value items</span>
+        </div>
+      </section>
+
+      <section class="panel" id="inventory">
+        <div class="panel-header">
+          <div>
+            <h2>Product Inventory</h2>
+            <p>View and manage all your products</p>
+          </div>
+          <input type="search" id="searchInput" placeholder="Search products...">
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>PRODUCT NAME</th>
+                <th>PRICE</th>
+                <th>CATEGORY</th>
+                <th>STATUS</th>
+              </tr>
+            </thead>
+            <tbody id="productTable"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <div>
+            <h2>Inventory Analytics</h2>
+            <p>Category distribution and insights</p>
+          </div>
+        </div>
+        <div id="categoryChart" class="chart"></div>
+      </section>
+
+      <footer>InventoryPro © 2026 | JavaScript Internship Project</footer>
+    </main>
+  </div>
+
+  <div class="modal hidden" id="productModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeModal">×</button>
+      <h2>Add New Product</h2>
+      <p>Enter product details below.</p>
+
+      <form id="productForm">
+        <label for="productName">Product Name</label>
+        <input id="productName" type="text" placeholder="e.g. Monitor" required>
+
+        <label for="productPrice">Product Price ($)</label>
+        <input id="productPrice" type="number" min="0.01" step="0.01" placeholder="e.g. 150" required>
+
+        <button class="primary-btn" type="submit">Save Product</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
